@@ -1,0 +1,101 @@
+@font-face {
+    font-family: 'digital';
+    src: url('../src/fonts/DS-DIGI.TTF');
+}
+
+.minesweeper {
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    width: 275px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(186, 186, 186);
+    border-left: 3px solid rgb(232, 232, 232);
+    border-top: 3px solid rgb(232, 232, 232);
+    border-right: 3px solid rgb(35, 35, 35);
+    border-bottom: 3px solid rgb(35, 35, 35);
+    overflow: hidden;
+}
+
+.top-lvl {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px;
+    width: 244px;
+    background-color: rgb(186, 186, 186);
+    border-left: 3px solid rgb(232, 232, 232);
+    border-top: 3px solid rgb(232, 232, 232);
+    border-right: 3px solid rgb(35, 35, 35);
+    border-bottom: 3px solid rgb(35, 35, 35);
+}
+
+.mine-num, .mine-timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25px;
+    width: 2.25em;
+    background-color: black;
+    font-family: 'digital';
+    color: red;
+    font-size: 1.5em;
+}
+
+.mine-num {
+    margin-left: 5%;
+}
+
+.mine-timer {
+    margin-right: 5%;
+}
+
+.smiley {
+    height: 21px;
+    width: 21px;
+    border-left: 3px solid rgb(232, 232, 232);
+    border-top: 3px solid rgb(232, 232, 232);
+    border-right: 3px solid rgb(35, 35, 35);
+    border-bottom: 3px solid rgb(35, 35, 35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mine-grid {
+    height: 250px;
+    width: 250px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgb(186, 186, 186);
+}
+
+.mine-grid div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 19px;
+    width: 19px;
+    border-left: 3px solid rgb(232, 232, 232);
+    border-top: 3px solid rgb(232, 232, 232);
+    border-right: 3px solid rgb(35, 35, 35);
+    border-bottom: 3px solid rgb(35, 35, 35);
+    font-weight: bold;
+}
+
+.square {
+    font-size: 1.25em;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+
+}
+
+.square img {
+    height: 15px;
+    width: 15px;
+}

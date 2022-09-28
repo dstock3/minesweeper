@@ -43,14 +43,13 @@ const Minesweeper = ({mineInst, setMineInst}) => {
     useEffect(()=> {
         if (gameArray.length > 0) {
             setShuffled(gameArray.sort(() => Math.random() -0.5))
+            for (let i = 0; i < width*width; i++) {
+                setSquares(squares => [...squares, i])       
+            } 
         }
     }, [gameArray])
 
-    useEffect(()=> {
-        for (let i = 0; i < width*width; i++) {
-            setSquares(squares => [...squares, i]) 
-        }
-    }, [width])
+
 
     useEffect(()=> {
         let squares = Array.from(document.getElementsByClassName("square"))

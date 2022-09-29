@@ -1,12 +1,14 @@
-import { useState } from 'react';
-import Minesweeper from '../src/components/Minesweeper'
 import './App.css';
+import Main from './components/Main';
+import MineBackground from './components/MineBackground';
 
 function App() {
-  const [mineInst, setMineInst] = useState(0)
+  
   return (
     <div className="App">
-      <Minesweeper mineInst={mineInst} setMineInst={setMineInst} key={new Date().getTime()}/>
+      <MineBackground mineSet="one"/>
+      <MineBackground mineSet="two"/>
+      <Main />
     </div>
   );
 }

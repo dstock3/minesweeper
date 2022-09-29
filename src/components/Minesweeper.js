@@ -12,45 +12,41 @@ const Minesweeper = ({mineInst, setMineInst}) => {
     const [squares, setSquares] = useState([])
     const [bombAmount, setBombAmount] = useState(10)
     const [flagAmount, setFlagAmount] = useState(bombAmount)
-    const [bombsArray, setBombsArray] = useState([])
-    const [emptyArray, setEmptyArray] = useState([])
-    const [gameArray, setGameArray] = useState([])
     const [shuffled, setShuffled] = useState([])
     const [isGameOver, setIsGameOver] = useState(false)
     const [counter, setCounter] = useState(0)
     const [isActive, setIsActive] = useState(false)
     const [face, setFace] = useState(smiley)
     const [isClicked, setIsClicked] = useState(false)
-    
-    useEffect(()=> {
-        if (!isGameOver) {
-            for (let i = 0; i < bombAmount; i++) {
-                setBombsArray(bombsArray => [...bombsArray, "bomb"]) 
-            }
-    
-            let emptyArrayAmount = width*width-bombAmount
-    
-            for (let i = 0; i < emptyArrayAmount; i++) {
-                setEmptyArray(emptyArray => [...emptyArray, "valid"]) 
-            }  
+
+    const setBoard = () => {
+        let bombsArray = []
+        for (let i = 0; i < bombAmount; i++) {
+            bombsArray.push("bomb")
         }
-    }, [bombAmount, isGameOver])
+
+        let emptyArrayAmount = width*width-bombAmount
+        let emptyArray = []
+        for (let i = 0; i < emptyArrayAmount; i++) {
+            emptyArray.push("valid")
+        } 
+
+        let thisGame = emptyArray.concat(bombsArray)
+        let shuffledGame = thisGame.sort(() => Math.random() -0.5)
+        setShuffled(shuffledGame)
+
+        let squareArray = []
+
+        for (let i = 0; i < width*width; i++) {
+            squareArray.push(i)    
+        } 
+        setSquares(squareArray)
+    }
 
     useEffect(()=> {
-        setGameArray(emptyArray.concat(bombsArray))
-    }, [emptyArray])
-
-    useEffect(()=> {
-        if (gameArray.length > 0) {
-            setShuffled(gameArray.sort(() => Math.random() -0.5))
-            for (let i = 0; i < width*width; i++) {
-                setSquares(squares => [...squares, i])       
-            } 
-        }
-    }, [gameArray])
-
-
-
+        setBoard()
+    }, [])
+    
     useEffect(()=> {
         let squares = Array.from(document.getElementsByClassName("square"))
         
@@ -71,7 +67,6 @@ const Minesweeper = ({mineInst, setMineInst}) => {
                 squares[i].setAttribute('data', sum)
             }
         }
-
     }, [shuffled])
 
     useEffect(()=> {
@@ -136,23 +131,23 @@ const Minesweeper = ({mineInst, setMineInst}) => {
                 square.style.border = "solid 3px rgb(124, 124, 124)"
             }
             
-            if (sum != 0) {
+            if (sum !== 0) {
                 square.classList.add('checked')
                 if (sum === 1) {
                     square.style.color = "blue"
-                } else if (sum == 2) {
+                } else if (sum === 2) {
                     square.style.color = "green"
-                } else if (sum == 3) {
+                } else if (sum === 3) {
                     square.style.color = "red"
-                } else if (sum == 4) {
+                } else if (sum === 4) {
                     square.style.color = "darkblue"
-                } else if (sum == 5) {
+                } else if (sum === 5) {
                     square.style.color = "darkred"
-                } else if (sum == 6) {
+                } else if (sum === 6) {
                     square.style.color = "teal"
-                } else if (sum == 7) {
+                } else if (sum === 7) {
                     square.style.color = "black"
-                } else if (sum == 8) {
+                } else if (sum === 8) {
                     square.style.color = "grey"
                 }
                 square.classList.add("checked")

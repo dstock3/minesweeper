@@ -1,62 +1,67 @@
-.mine-container {
+.bkg {
+    overflow: hidden;
     position: absolute;
     left: -50%;
     top: -5%;
     height: 105%;
     width: 150%;
-    overflow: hidden;
+    z-index: 0;
+
+}
+.mine-container {
+    position: absolute;
+    left: -50%;
+    top: 0;
+    height: 150%;
+    width: 150%;
+    z-index: 0;
 }
 
 #two {
-    top: -45%;
+    top: -100px;
 }
 
 #three {
-    top: -55%;
+    top: -300px;
 }
 
 #four {
-    top: -65%;
+    top: -600px;
 }
 
 @keyframes rainingMines {
-    100%  {top:115%}
+    100%  {top:102%}
 }
 
 @keyframes rainingMinesTwo {
-    100%  {top:125%}
+    100%  {top:105%}
 }
 
 @keyframes rainingMinesThree {
-    100%  {top:135%}
+    100%  {top:107%}
 }
 
 @keyframes rainingMinesFour {
-    100%  {top:145%}
+    100%  {top:109%}
 }
   
 #one > .mine-design {
-    z-index: 996;
-    animation: rainingMines 25s infinite;
+    animation: rainingMines 30s linear infinite;
     animation-iteration-count: infinite;
 }
 
 #two > .mine-design {
-    z-index: 997;
-    animation: rainingMinesTwo 27s infinite;
+    animation: rainingMinesTwo 32s linear infinite;
     animation-iteration-count: infinite;
 }
 
 #three > .mine-design {
-    z-index: 998;
-    animation: rainingMinesThree 29s infinite;
+    animation: rainingMinesThree 35s linear infinite;
     animation-iteration-count: infinite;
 }
 
-
 #four > .mine-design {
-    z-index: 999;
-    animation: rainingMinesFour 32s infinite;
+    animation: rainingMinesFour 37s linear infinite;
     animation-iteration-count: infinite;
 }
 

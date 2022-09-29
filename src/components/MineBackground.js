@@ -4,14 +4,14 @@ import mineImg from '../assets/mine.png'
 import '../mine-design.css'
 
 function determineWidth() {
-    let base = Math.random() * (3 - 1) + 3;
+    let base = Math.random() * (5 - 2 + 1) + 2;
 
     return `${base * 15}px`
 }
 
 function determinePosition() {
     let xAxis = Math.floor(Math.random(1) * 97);
-    let yAxis = -10;
+    let yAxis = -(Math.floor(Math.random(1) * 5));
     return {horizontal: `${xAxis}%`, vertical:`${yAxis}%`} 
 }
 
@@ -23,7 +23,6 @@ function createMine() {
         left: minePosition.horizontal,
         top: minePosition.vertical,
         width: determineWidth(),
-        opacity: '100%',
     }
     return newMine
 }

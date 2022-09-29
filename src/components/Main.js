@@ -1,6 +1,7 @@
 import React from 'react'
 import Minesweeper from './Minesweeper'
 import { useState } from 'react';
+import '../main.css'
 
 const Main = () => {
     const [mineInst, setMineInst] = useState(0)
